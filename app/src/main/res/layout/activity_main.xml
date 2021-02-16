@@ -6,13 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/inputTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Escribir"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resLbl" />
+
+    <Button
+        android:id="@+id/proccessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:text="Procesar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputTxt"
+        app:layout_constraintStart_toStartOf="@+id/inputTxt" />
+
+    <TextView
+        android:id="@+id/resLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:text="¿Porqué Tavo?"
+        app:layout_constraintEnd_toEndOf="@+id/inputTxt"
+        app:layout_constraintStart_toStartOf="@+id/inputTxt"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/proccessButton"
+        app:layout_constraintEnd_toEndOf="@+id/inputTxt"
+        app:layout_constraintStart_toStartOf="@+id/inputTxt"
+        app:layout_constraintTop_toBottomOf="@+id/inputTxt" >
+
+        <RadioButton
+            android:id="@+id/rbdSeparated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="M o d o  T A V O" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="moDo taVo" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Momdom Tamvom" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
