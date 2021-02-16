@@ -45,24 +45,17 @@ class MainActivity : AppCompatActivity() {
 
         var getWord  = sentence.replace("a","am",true)
         getWord  = getWord .replace("o","om",true)
- 
-        //eu,e sentence
+
+        //ue,ui,e,i,u sentence
         when {
             getWord.contains("ue") -> {
                 getWord  = getWord.replace("ue","uem", true)
             }
-            getWord.contains("e") -> {
-                getWord = getWord.replace("e", "em", true)
-            }
-            getWord.contains("u") -> {
-                getWord = getWord.replace("u", "um", true)
-            }
-        }
-
-        // ui, i sentence
-        when {
             getWord.contains("ui") -> {
                 getWord = getWord.replace("ui", "uim", true)
+            }
+            getWord.contains("e") -> {
+                getWord = getWord.replace("e", "em", true)
             }
             getWord.contains("i") -> {
                 getWord = getWord.replace("i", "im", true)
