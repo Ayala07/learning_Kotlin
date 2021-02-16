@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learning Kotlin</string>
+    <string name="app_name">T-App</string>
     <string name="title">Why Tavo?</string>
     <string name="plainTextView1">Write something</string>
     <string name="rbdSeparated">T A V O  M o d e</string>
