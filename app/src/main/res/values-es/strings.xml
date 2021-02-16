@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Learning Kotlin</string>
+    <string name="title">¿Porque Tavo?</string>
+    <string name="plainTextView1">Escribe algo</string>
+    <string name="rbdSeparated">M O D O  T A V O</string>
+    <string name="rbdUpperAndLower">MoDo TavO</string>
+    <string name="rbdChems">Momdem Tamvom</string>
+</resources>

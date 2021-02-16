@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Learning Kotlin</string>
+    <string name="title">Why Tavo?</string>
+    <string name="plainTextView1">Write something</string>
+    <string name="rbdSeparated">T A V O  M o d e</string>
+    <string name="rbdUpperAndLower">TavO moDe</string>
+    <string name="rbdChems">Tamvom momdem</string>
 </resources>
