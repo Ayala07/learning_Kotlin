@@ -57,4 +57,17 @@
             android:text="Momdom Tamvom" />
     </RadioGroup>
 
+    <ImageButton
+        android:id="@+id/copyTextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/inputTxt"
+        android:background="@color/material_on_primary_disabled"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/inputTxt"
+        app:layout_constraintTop_toTopOf="@+id/resLbl"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="?attr/actionModeCopyDrawable" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

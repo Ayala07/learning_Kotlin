@@ -1,5 +1,8 @@
 package com.example.learningkotlin
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -31,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         rbdChems.setOnClickListener {
             chemsificator(inputTxt.text.toString())
+        }
+
+        copyTextBtn.setOnClickListener {
+            copyText()
         }
 
     }
@@ -84,5 +91,13 @@ class MainActivity : AppCompatActivity() {
 
         println(getWord)
         resLbl.text = getWord
+    }
+
+    private fun copyText(){
+        val myClipManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val myCLipData = ClipData.newPlainText("CliP TavO", resLbl.text)
+
+        myClipManager.setPrimaryClip(myCLipData)
+
     }
 }
