@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         proccessButton.setOnClickListener {
             val sentence = inputTxt.text.toString()
             //separated(sentence)
-            upperAndLowerCasse(sentence)
+            //upperAndLowerCasse(sentence)
+            chemsificator(sentence)
         }
     }
 
@@ -38,5 +39,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         resLbl.text = response
+    }
+
+    private fun chemsificator(sentence: String){
+
+        var getWord  = sentence.replace("a","am",true)
+        getWord  = getWord .replace("o","om",true)
+ 
+        //eu,e sentence
+        when {
+            getWord.contains("ue") -> {
+                getWord  = getWord.replace("ue","uem", true)
+            }
+            getWord.contains("e") -> {
+                getWord = getWord.replace("e", "em", true)
+            }
+            getWord.contains("u") -> {
+                getWord = getWord.replace("u", "um", true)
+            }
+        }
+
+        // ui, i sentence
+        when {
+            getWord.contains("ui") -> {
+                getWord = getWord.replace("ui", "uim", true)
+            }
+            getWord.contains("i") -> {
+                getWord = getWord.replace("i", "im", true)
+            }
+            getWord.contains("u") -> {
+                getWord = getWord.replace("u", "um", true)
+            }
+        }
+
+        println(getWord)
+        resLbl.text = getWord
     }
 }
