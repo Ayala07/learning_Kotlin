@@ -2,6 +2,8 @@ package com.example.learningkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
@@ -10,12 +12,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        proccessButton.setOnClickListener {
+        inputTxt.addTextChangedListener{
             val sentence = inputTxt.text.toString()
-            //separated(sentence)
-            //upperAndLowerCasse(sentence)
-            chemsificator(sentence)
+            when{
+                rbdSeparated.isChecked -> separated(sentence)
+                rbdCapitalLowerLetter.isChecked -> upperAndLowerCasse(sentence)
+                rbdChems.isChecked -> chemsificator(sentence)
+            }
         }
+
+        rbdSeparated.setOnClickListener{
+            separated(inputTxt.text.toString())
+        }
+
+        rbdCapitalLowerLetter.setOnClickListener{
+            upperAndLowerCasse(inputTxt.text.toString())
+        }
+
+        rbdChems.setOnClickListener {
+            chemsificator(inputTxt.text.toString())
+        }
+
     }
 
     private fun separated(sentence:String){
