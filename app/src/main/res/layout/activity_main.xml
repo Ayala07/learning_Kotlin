@@ -62,12 +62,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/inputTxt"
-        android:background="@color/material_on_primary_disabled"
+        android:background="?android:attr/panelBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/inputTxt"
         app:layout_constraintTop_toTopOf="@+id/resLbl"
         app:layout_constraintVertical_bias="0.39"
-        app:srcCompat="?attr/actionModeCopyDrawable" />
+        app:srcCompat="?attr/actionModeCopyDrawable"
+        android:contentDescription="Uso para copiar texto" />
+
+    <Switch
+        android:id="@+id/themeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Theme"
+        app:layout_constraintBottom_toTopOf="@+id/copyTextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/resLbl"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

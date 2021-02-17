@@ -3,6 +3,8 @@ package com.example.learningkotlin
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.SharedPreferences
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -12,11 +14,24 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        setTheme(R.style.Theme_LearningKotlin)
+        val sharedPreferences =this.getPreferences(MODE_PRIVATE) ?: return
+        val themes = sharedPreferences.getInt("THEME", 2)
+        when(themes){
+            1 -> {
+                setTheme(R.style.Theme_LearningKotlinNight)
+                println("Noche bro")
+            }
+            2 -> {
+                setTheme(R.style.Theme_LearningKotlin)
+                println("Dia bro")
+            }
+            else -> setTheme(R.style.Theme_LearningKotlin)
+        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         inputTxt.addTextChangedListener{
             val sentence = inputTxt.text.toString()
@@ -43,6 +58,27 @@ class MainActivity : AppCompatActivity() {
             copyText()
         }
 
+        themeSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                sharedPreferences.edit().putInt("THEME",1).apply()
+            } else {
+                sharedPreferences.edit().putInt("THEME",2).apply()
+            }
+        }
+
+        themeVerification(themes)
+
+    }
+
+    private fun themeVerification(dataVerification:Int){
+        when(dataVerification){
+            1 -> {
+                themeSwitch.isChecked = true
+            }
+            2 -> {
+                themeSwitch.isChecked = false
+            }
+        }
     }
 
     private fun separated(sentence:String){
@@ -103,4 +139,6 @@ class MainActivity : AppCompatActivity() {
         myClipManager.setPrimaryClip(myCLipData)
 
     }
+
+
 }
