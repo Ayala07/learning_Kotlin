@@ -6,27 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/inputTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/plainTextView1"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resLbl" />
-
     <TextView
         android:id="@+id/resLbl"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:text="@string/title"
         app:layout_constraintEnd_toEndOf="@+id/inputTxt"
         app:layout_constraintStart_toStartOf="@+id/inputTxt"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="@string/plainTextView1"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resLbl" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/inputTxt"
         app:layout_constraintStart_toStartOf="@+id/inputTxt"
-        app:layout_constraintTop_toBottomOf="@+id/inputTxt">
+        app:layout_constraintTop_toBottomOf="@+id/inputTxt"
+        app:layout_constraintVertical_bias="0.38">
 
         <RadioButton
             android:id="@+id/rbdSeparated"
@@ -63,12 +65,11 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/panelBackground"
         android:contentDescription="Uso para copiar texto"
-        app:layout_constraintBottom_toBottomOf="@+id/inputTxt"
+        app:layout_constraintBottom_toTopOf="@+id/inputTxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toEndOf="@+id/inputTxt"
         app:layout_constraintTop_toTopOf="@+id/resLbl"
-        app:layout_constraintVertical_bias="0.345"
         app:srcCompat="?attr/actionModeCopyDrawable" />
 
     <Switch
@@ -81,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/resLbl"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.100000024"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

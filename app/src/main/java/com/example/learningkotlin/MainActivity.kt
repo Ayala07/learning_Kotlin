@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
                 println("Noche bro")
             }
             2 -> {
-                setTheme(R.style.myLigthTheme)
+                setTheme(R.style.Theme_LearningKotlin)
                 println("Dia bro")
             }
-            else -> setTheme(R.style.myLigthTheme)
+            else -> setTheme(R.style.Theme_LearningKotlin)
         }
 
         super.onCreate(savedInstanceState)
