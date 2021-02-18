@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--Customs colors-->
+    <!--Light Colors-->
+    <color name="ligthbackground">#fffffe</color>
+    <color name="lightRadioBtn">#a786df</color>
+    <color name="ligthText">#0e172c</color>
+    <color name="navBarColor">#fec7d7</color>
+    <color name="statusBarColor">#E3B2C0</color>
+    <!--Dark colors-->
+    <color name="background">#0F0E17</color>
+    <color name="radioButton">#FF8906</color>
+    <color name="textColorButton">#fffffe</color>
+    <color name="text">#a7a9be</color>
+    <color name="navBarColorBlack">#e53170</color>
+
+
 </resources>

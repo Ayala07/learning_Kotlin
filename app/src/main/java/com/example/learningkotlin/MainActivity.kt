@@ -1,13 +1,11 @@
 package com.example.learningkotlin
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.SharedPreferences
+import android.content.*
 import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
@@ -22,10 +20,10 @@ class MainActivity : AppCompatActivity() {
                 println("Noche bro")
             }
             2 -> {
-                setTheme(R.style.Theme_LearningKotlin)
+                setTheme(R.style.myLigthTheme)
                 println("Dia bro")
             }
-            else -> setTheme(R.style.Theme_LearningKotlin)
+            else -> setTheme(R.style.myLigthTheme)
         }
 
         super.onCreate(savedInstanceState)
@@ -58,11 +56,18 @@ class MainActivity : AppCompatActivity() {
             copyText()
         }
 
-        themeSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
+        themeSwitch.setOnClickListener {
+            if (themeSwitch.isChecked){
                 sharedPreferences.edit().putInt("THEME",1).apply()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                this.finish()
+
             } else {
                 sharedPreferences.edit().putInt("THEME",2).apply()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                this.finish()
             }
         }
 
@@ -74,9 +79,15 @@ class MainActivity : AppCompatActivity() {
         when(dataVerification){
             1 -> {
                 themeSwitch.isChecked = true
+                val imageSource = resources.getIdentifier("@drawable/ic_baseline_wb_sunny_24", null,packageName)
+                val  image = ContextCompat.getDrawable(this, imageSource)
+                themeSwitch.thumbDrawable = image
             }
             2 -> {
                 themeSwitch.isChecked = false
+                val imageSource = resources.getIdentifier("@drawable/ic_baseline_moon_2_24", null,packageName)
+                val  image = ContextCompat.getDrawable(this, imageSource)
+                themeSwitch.thumbDrawable = image
             }
         }
     }
