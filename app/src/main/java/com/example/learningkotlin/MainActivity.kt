@@ -10,6 +10,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
@@ -122,6 +123,7 @@ open class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.dialog)
         val webViewButton = dialog.findViewById<ImageView>(R.id.tavoImage)
         webViewButton.setOnClickListener {
+            Toast.makeText(this, "Tavo Lindo", Toast.LENGTH_LONG).show()
             val intent = Intent(this, webView::class.java)
             startActivity(intent)
         }
