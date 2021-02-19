@@ -1,32 +1,49 @@
 package com.example.learningkotlin
 
+import android.app.Dialog
 import android.content.*
+import android.content.res.Configuration
 import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_web_view.*
+import kotlinx.android.synthetic.main.dialog.*
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
         val sharedPreferences =this.getPreferences(MODE_PRIVATE) ?: return
         val themes = sharedPreferences.getInt("THEME", 2)
         when(themes){
             1 -> {
-                setTheme(R.style.Theme_LearningKotlinNight)
+                //setTheme(R.style.Theme_LearningKotlinNight)
+                theme.applyStyle(R.style.Theme_LearningKotlinNight,true)
                 println("Noche bro")
             }
             2 -> {
-                setTheme(R.style.Theme_LearningKotlin)
+                //setTheme(R.style.Theme_LearningKotlin)
+                theme.applyStyle(R.style.Theme_LearningKotlin ,true)
                 println("Dia bro")
             }
-            else -> setTheme(R.style.Theme_LearningKotlin)
+            else -> {
+                //setTheme(R.style.Theme_LearningKotlin)
+                theme.applyStyle(R.style.Theme_LearningKotlin,true)
+            }
         }
 
-        super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
 
@@ -71,7 +88,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        questImg.setOnClickListener {
+            showImage()
+        }
+
         themeVerification(themes)
+
+
 
     }
 
@@ -90,6 +113,20 @@ class MainActivity : AppCompatActivity() {
                 themeSwitch.thumbDrawable = image
             }
         }
+    }
+
+    private fun showImage(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog)
+        val webViewButton = dialog.findViewById<ImageView>(R.id.tavoImage)
+        webViewButton.setOnClickListener {
+            val intent = Intent(this, webView::class.java)
+            startActivity(intent)
+        }
+        dialog.show()
+
     }
 
     private fun separated(sentence:String){
@@ -120,22 +157,29 @@ class MainActivity : AppCompatActivity() {
         var getWord  = sentence.replace("a","am",true)
         getWord  = getWord .replace("o","om",true)
 
-        //ue,ui,e,i,u sentence
+        //ue,e,u sentence
         when {
             getWord.contains("ue") -> {
-                getWord  = getWord.replace("ue","uem", true)
-            }
-            getWord.contains("ui") -> {
-                getWord = getWord.replace("ui", "uim", true)
+                getWord = getWord.replace("ue", "uem" ,false)
             }
             getWord.contains("e") -> {
-                getWord = getWord.replace("e", "em", true)
-            }
-            getWord.contains("i") -> {
-                getWord = getWord.replace("i", "im", true)
+                getWord = getWord.replace("e","em",false)
             }
             getWord.contains("u") -> {
-                getWord = getWord.replace("u", "um", true)
+                getWord = getWord.replace("u","um",false)
+            }
+        }
+
+        //ui, i, u sentence
+        when {
+            getWord.contains("ui") -> {
+                getWord = getWord.replace("i", "uim" ,false)
+            }
+            getWord.contains("i") -> {
+                getWord = getWord.replace("i","im",false)
+            }
+            getWord.contains("u") -> {
+                getWord = getWord.replace("u","um",false)
             }
         }
 
@@ -150,6 +194,8 @@ class MainActivity : AppCompatActivity() {
         myClipManager.setPrimaryClip(myCLipData)
 
     }
+
+
 
 
 }

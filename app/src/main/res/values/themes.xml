@@ -14,7 +14,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="splashScreen" parent="Theme.LearningKotlin">
-        <item name="android:windowBackground">@drawable/splashscreen</item>
-    </style>
 </resources>
